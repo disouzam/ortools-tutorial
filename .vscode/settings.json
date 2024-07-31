@@ -1,0 +1,21 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.autoComplete.extraPaths": [
+        "{workspaceFolder}/setup/python3.12_setup/.venv3.12/Lib"
+    ],
+    "python.analysis.extraPaths": [
+        "{workspaceFolder}/setup/python3.12_setup/.venv3.12/Lib"
+    ],
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "notebook.formatOnSave.enabled": true,
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [
+        120
+    ],
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "python.defaultInterpreterPath": "{workspaceFolder}/setup/python3.12_setup/.venv3.12/Scripts/python.exe"
+}
