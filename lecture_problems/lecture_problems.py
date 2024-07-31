@@ -1,17 +1,12 @@
-# %%
 from ortools.linear_solver import pywraplp
 
-# %% [markdown]
-# ### Lecture example: LP
-#
+# Lecture example: LP
 # A simple two decision problem for factory output.
 
-# %%
 solver = pywraplp.Solver(
     name="factory-lp", problem_type=pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
 inf = solver.infinity()
 
-# %%
 # entities
 I = {"s", "p"}
 
@@ -31,11 +26,9 @@ solver.Maximize(solver.Sum(P_i[i] * y_i[i] for i in I))
 # constraints
 _ = solver.Add(solver.Sum(t_i[i] * y_i[i] for i in I) <= T)
 
-# %%
 # run solver
 solver.Solve()
 
-# %%
 obj = solver.Objective().Value()
 
 y_s = y_i["s"].SolutionValue()
@@ -45,15 +38,11 @@ print(f"Optimal solution makes {
       y_s} of standard product and {y_p} of premium product.")
 print(f"Optimal objective value = £{obj}")
 
-# %% [markdown]
-# ### Lecture example: MILP
-
-# %%
+# Lecture example: MILP
 solver = pywraplp.Solver(
     name="factory-milp", problem_type=pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
 inf = solver.infinity()
 
-# %%
 # entities
 I = {"s", "p"}
 
@@ -73,11 +62,9 @@ solver.Maximize(solver.Sum(P_i[i] * y_i[i] for i in I))
 # constraints
 _ = solver.Add(solver.Sum(t_i[i] * y_i[i] for i in I) <= T)
 
-# %%
 # run solver
 solver.Solve()
 
-# %%
 obj = solver.Objective().Value()
 
 y_s = y_i["s"].SolutionValue()
@@ -87,15 +74,12 @@ print(f"Optimal solution makes {
       y_s} of standard product and {y_p} of premium product.")
 print(f"Optimal objective value = £{obj}")
 
-# %% [markdown]
-# ### Lecture example: MILP with startup costs
+# Lecture example: MILP with startup costs
 
-# %%
 solver = pywraplp.Solver(name="factory-startup",
                          problem_type=pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
 inf = solver.infinity()
 
-# %%
 # entitities
 I = {"s", "p", "e"}
 
@@ -120,11 +104,9 @@ solver.Maximize(solver.Sum(P_i[i] * y_i[i] for i in I) - C_e * delta)
 _ = solver.Add(solver.Sum(t_i[i] * y_i[i] for i in I) <= T)
 _ = solver.Add(M * delta >= y_i["e"])
 
-# %%
 # run solver
 solver.Solve()
 
-# %%
 obj = solver.Objective().Value()
 
 y_s = y_i["s"].SolutionValue()
