@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ortools-tutorial"
+version = "0.1.0"
+description = "Repository to reproduce Ross Hart examples and play with additional stuff"
+authors = ["Dickson Souza <36424026+disouzam@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ortools = "^9.12.4544"
+jupyterlab = "^4.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
